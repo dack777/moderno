@@ -70,9 +70,9 @@
          color: #a0a0a0;
          font-size: 14px;
       }
-      & + .header__circle {
-         margin-left: 15px;
-      }
+      // & + .header__circle {
+      //    margin-left: 15px;
+      // }
       span {
          position: absolute;
          width: 18px;
@@ -98,9 +98,130 @@
       background-color: $tomate;
    }
 }
+// Start Стили для circle
+.circle {
+   &__menu {
+      border-top: 0px solid #e0e0e0;
+      top: 62px;
+      right: 0;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.3s;
+      position: absolute;
+   }
+   &__item {
+      background-color: #fff;
+      border-top: none;
+      display: flex;
+      align-items: center;
+      width: 269px;
+      position: relative;
+      transition: all 0.3s;
+      border: 0px solid #e0e0e0;
+      padding: 0 23px;
+      border-left-width: 1px;
+      border-right-width: 1px;
+      &::before {
+         position: absolute;
+         top: 27px;
+         right: 28px;
+         color: #b0bec5;
+         font-size: 16px;
+      }
+   }
+   &__images {
+      margin-right: 15px;
+   }
+   &__info {
+      &-name {
+         @include f500;
+         color: $bg;
+         line-height: 18px;
+      }
+      &-thema {
+         font-size: 12px;
+         color: $green;
+      }
+      &-price {
+         @include f500;
+         color: #000;
+         font-size: 16px;
+      }
+      &-date {
+         color: #707070;
+         font-size: 10px;
+      }
+   }
+}
+.notification__box,
+.message__box,
+.basket__box {
+   margin-top: 54px;
+   margin-left: 15px;
+   position: relative;
+   height: 90px;
+   &:hover {
+      .circle__menu {
+         overflow: auto;
+         height: auto;
+         border-width: 1px;
+      }
+      .circle__item {
+         padding: 23px 23px;
+         border-width: 1px;
+      }
+      .header__circle::before {
+         color: $bg;
+      }
+   }
+}
+.notification__menu,
+.message__menu {
+   .circle__images {
+      margin-right: 20px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+   }
+}
+.icons-color::before {
+   color: $tomate;
+}
+// End Стили для circle
+// Корзина и выпадашка на ней
 .basket {
    span {
       background-color: $green;
+   }
+   &__summ {
+      padding: 16px 17px 12px;
+      border: 1px solid #e0e0e0;
+      border-top: none;
+      background-color: #fff;
+   }
+   &__title {
+      display: flex;
+      justify-content: space-between;
+      padding-left: 13px;
+      padding-right: 22px;
+      margin-bottom: 15px;
+      @include f700;
+      font-size: 16px;
+      color: $bg;
+   }
+   &__btn {
+      @include f700;
+      color: #fff;
+      font-size: 14px;
+      padding: 12px 5px;
+      background-color: $green;
+      text-align: center;
+      width: 100px;
+      &-checkout {
+         width: 123px;
+         margin-left: 6px;
+         background-color: $red;
+      }
    }
 }
 .user {
@@ -140,6 +261,38 @@
       @include f700;
       color: $green;
    }
+   // start Выпадашка после нажатия на юзера
+   &__box {
+      position: relative;
+      height: 90px;
+      margin-top: 40px;
+      &:hover {
+         .user__menu {
+            height: auto;
+            border-width: 1px;
+            padding: 20px;
+            overflow: auto;
+         }
+      }
+   }
+   &__menu {
+      top: 69px;
+      left: 20px;
+      border: 0 solid rgb(204, 204, 204);
+      position: absolute;
+      background-color: #fff;
+      padding: 0 20px;
+      width: 158px;
+      transition: all 0.3s;
+      height: 0;
+      overflow: hidden;
+      a {
+         font-size: 12px;
+         color: #546e7a;
+         margin-bottom: 15px;
+      }
+   }
+   // end Выпадашка после нажатия на юзера
 }
 .menu {
    display: flex;
